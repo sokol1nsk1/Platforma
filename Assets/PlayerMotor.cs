@@ -49,8 +49,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        Debug.Log("Moving");
-        Debug.Log(value.Get<Vector2>());
+        //Debug.Log("Moving");
+        //Debug.Log(value.Get<Vector2>());
         direction = value.Get<Vector2>();
 
     }
