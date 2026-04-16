@@ -10,11 +10,17 @@ public class UI_HealthDisplay : MonoBehaviour
     void Start()
     {
         health.OnHealthChanged += OnHealthChanged;
+        health.OnHealthInitialized += OnHealthInitialized;
     }
 
     private void OnHealthChanged(float newHealth, float amountChanged)
     {
         //Debug.Log(newHealth + ":" + amountChanged);
         textComponent.text = newHealth.ToString();
+    }
+
+    private void OnHealthInitialized(float currentHealth)
+    {
+        textComponent.text = currentHealth.ToString();
     }
 }
