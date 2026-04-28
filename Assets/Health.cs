@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements.Experimental;
 
 public class Health : MonoBehaviour
@@ -7,6 +8,10 @@ public class Health : MonoBehaviour
     public float maxhealth = 100;
     private float currenthealth;
     private bool invincibility;
+
+    public float coinforhp = 10;
+    public float removecoins = 10;
+    public float coinHealing = 8;
 
     public delegate void OnHealthChangedHandler(float newHealth, float amountChanged);
     public event OnHealthChangedHandler OnHealthChanged;
