@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 
     public float coinforhp = 10;
     public float removecoins = 10;
-    public float coinHealing = 8;
+    public float coinHealing = 5;
 
     public delegate void OnHealthChangedHandler(float newHealth, float amountChanged);
     public event OnHealthChangedHandler OnHealthChanged;

@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ce6c36dfd2b2b4e8d09bd7be4387ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 10
+  maxHealth: 100
   coinforhp: 10
   removecoins: 10
   coinHealing: 8
@@ -834,11 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db526442fe4c62e4c9252be960b4e1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  coinforhp: 10
-  removecoins: 10
-  coinHealing: 8
-  health: {fileID: 0}
 --- !u!1001 &182952174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4940,7 +4935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4b59d95a4b729489eb2106d2aa6266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 127792204}
+  coinComp: {fileID: 127792204}
   textComponent: {fileID: 244494231}
 --- !u!1001 &1487422529
 PrefabInstance:
