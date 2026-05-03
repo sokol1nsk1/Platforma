@@ -5,8 +5,8 @@ using UnityEngine.UIElements.Experimental;
 
 public class Health : MonoBehaviour
 {
-    public float maxhealth = 100;
-    private float currenthealth;
+    public int maxHealth = 100;
+    private float currentHealth;
     private bool invincibility;
 
     public float coinforhp = 10;
@@ -16,32 +16,26 @@ public class Health : MonoBehaviour
     public delegate void OnHealthChangedHandler(float newHealth, float amountChanged);
     public event OnHealthChangedHandler OnHealthChanged;
 
-    public delegate void OnHealthInitializedHandler(float currentHealth);
+    public delegate void OnHealthInitializedHandler(float newHealth);
     public event OnHealthInitializedHandler OnHealthInitialized;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currenthealth = maxhealth;
-        OnHealthInitialized?.Invoke(currenthealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        currentHealth = maxHealth;
+        OnHealthInitialized?.Invoke(currentHealth);
     }
 
     public void AddDamage(float damage)
     {
         if (!invincibility)
         {
-            currenthealth -= damage;
-            OnHealthChanged?.Invoke(currenthealth, damage);
+            currentHealth -= damage;
+            OnHealthChanged?.Invoke(currentHealth, damage);
             invincibility = true;
             StartCoroutine(ResetInvicibility(3));
         }
-        if (currenthealth <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -56,8 +50,8 @@ public class Health : MonoBehaviour
 
     public void AddHealing(float healing)
     {
-        currenthealth += healing;
-        OnHealthChanged?.Invoke(currenthealth, healing);
+        currentHealth += healing;
+        OnHealthChanged?.Invoke(currentHealth, healing);
         //Debug.Log(health);
     }
 }
