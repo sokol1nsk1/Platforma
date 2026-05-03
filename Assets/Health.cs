@@ -5,13 +5,11 @@ using UnityEngine.UIElements.Experimental;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private float currentHealth;
+    public float maxHealth = 10;
+    public float currentHealth;
     private bool invincibility;
 
-    public float coinforhp = 10;
-    public float removecoins = 10;
-    public float coinHealing = 5;
+    public CoinComponent CoinComp;
 
     public delegate void OnHealthChangedHandler(float newHealth, float amountChanged);
     public event OnHealthChangedHandler OnHealthChanged;
@@ -34,10 +32,13 @@ public class Health : MonoBehaviour
             OnHealthChanged?.Invoke(currentHealth, damage);
             invincibility = true;
             StartCoroutine(ResetInvicibility(3));
+            //Debug.Log($"O nie, zabra³o ci {damage} pkt ¿ycia :(, zosta³o ci teraz {currentHealth} pkt ¿ycia");
+            //Debug.Log("jesteœ teraz przez chwilê nieœmiertelny");
         }
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
+            //Debug.Log("wyrazy wspó³czucia");
         }
     }
 
@@ -45,13 +46,13 @@ public class Health : MonoBehaviour
     {
         yield return new WaitForSeconds(resetTime);
         invincibility = false;
-        Debug.Log("reset");
+        //Debug.Log("reset - mo¿esz znowu dostaæ obra¿enia");
     }
 
     public void AddHealing(float healing)
     {
         currentHealth += healing;
         OnHealthChanged?.Invoke(currentHealth, healing);
-        //Debug.Log(health);
+        //Debug.Log($"Jupi, przywróci³o ci {healing} pkt ¿ycia :), masz teraz {currentHealth} pkt ¿ycia");
     }
 }
