@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements.Experimental;
 
@@ -38,6 +39,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("Game Over");
             //Debug.Log("wyrazy wspó³czucia");
         }
     }
